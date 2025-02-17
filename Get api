@@ -1,0 +1,18 @@
+// Dependencies to install:
+// $ npm install node-fetch --save
+// add "type": "module" to package.json
+
+import fetch from 'node-fetch';
+
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    'X-API-Key': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6Ijk3MTk0OGUzLWE3OTEtNDdiNi1hY2IyLWE4ZjhiZmY0MTUwYyIsIm9yZ0lkIjoiNDMxOTc3IiwidXNlcklkIjoiNDQ0MzQ2IiwidHlwZUlkIjoiZDg3ZWJjOGEtMmVmYS00MTdkLWE5MWMtZWM2NDI5YzEwMmIxIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3Mzk3NzUxOTcsImV4cCI6NDg5NTUzNTE5N30.7AURal0E7GwTZFqgas-ajVAft2-_FP3kaZlIeVbw7qg'
+  },
+};
+
+fetch('https://deep-index.moralis.io/api/v2.2/discovery/token?chain=eth&token_address=0x1e6c68b2ace6be0e2e4a36a18fa01bb930b6f3ad', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
